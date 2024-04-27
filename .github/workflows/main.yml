@@ -67,6 +67,7 @@ jobs:
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+          working-directory: ./adil
 
       - name: Build Docker image
         run: docker build -t adiilkhan/practicecicd:tagname .
