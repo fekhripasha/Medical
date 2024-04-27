@@ -16,19 +16,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '16'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
-        working-directory: \Medical\adil\package.json # Replace this with the absolute path to your repository
+        working-directory: adil/package.json # Replace this with the absolute path to your repository
 
       - name: Build
         run: npm run build --if-present
-        working-directory: \Medical\adil\package.json # Replace this with the absolute path to your repository
+        working-directory: adil/package.json # Replace this with the absolute path to your repository
 
       - name: Run tests
         run: npm test
-        working-directory: dil\package.json # Replace this with the absolute path to your repository
+        working-directory: adil/package.json # Replace this with the absolute path to your repository
