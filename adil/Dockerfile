@@ -15,12 +15,16 @@
 # CMD ["npm", "start"]
 # # Use an official Node.js 16 image as the base
 FROM node:latest
+FROM node:latest
+RUN mkdir -p /src/app
+WORKDIR /src/app
+COPY package.json /src/app/package.json
 
-# Set the working directory to /app
-WORKDIR /app
+# # Set the working directory to /app
+# WORKDIR /app
 
-# Copy the package*.json files
-COPY package*.json ./
+# # Copy the package*.json files
+# COPY package*.json ./
 
 # Install the dependencies
 RUN npm install
