@@ -16,6 +16,8 @@ jobs:
 
     - name: List files in directory
       run: ls -al
+    - name: Set permissions for package.json
+      run: chmod 644 adil/package.json
 
 
     - name: Set up Node.js
