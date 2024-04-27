@@ -1,5 +1,3 @@
-name: Angular CI
-
 on:
   push:
     branches:
@@ -15,6 +13,12 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    - name: List files in directory
+      run: ls -al
+    - name: Set permissions for package.json
+      run: chmod 644 adil/package.json
+
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
