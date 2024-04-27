@@ -21,11 +21,18 @@ jobs:
       with:
         node-version: '14'
 
+    - name: Check if package.json exists
+      run: test -f package.json
+      continue-on-error: true
+
     - name: Install dependencies
+      if: success()
       run: npm install
 
     - name: Build
+      if: success() && steps.check-package-json.outcome == 'success'
       run: npm run build --if-present
 
     - name: Run tests
+      if: success() && steps.check-package-json.outcome == 'success'
       run: npm test
