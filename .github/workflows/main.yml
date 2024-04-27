@@ -61,22 +61,22 @@
               with:
                 node-version: '14'
       
-            - name: Set permissions for package.json
-              run: chmod 644 package.json
+            # - name: Set permissions for package.json
+            #   run: chmod 644 package.json
       
-            - name: Check if package.json exists
-              run: test -f package.json
-              continue-on-error: true
+            - name: NPM
+              working-directory: ./adil
+              run: |
+                npm install
+                npm run build --if-present
       
             - name: Install dependencies
               if: success()
               run: npm install
       
             - name: Build
-              if: success() && steps.check-if-package-json-exists.outcome == 'success'
               run: npm run build --if-present
       
             - name: Run tests
-              if: success() && steps.check-if-package-json-exists.outcome == 'success'
               run: npm test
       
