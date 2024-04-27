@@ -68,8 +68,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t adiilkhan/practicecicd:tagname
+        run: docker build -t adiilkhan/practicecicd:tagname .
         working-directory: ./adil
 
       - name: Push Docker image to Docker Hub
-        run: docker push adiilkhan/practicecicd:tagname
+        run: docker push adiilkhan/practicecicd:tagname .
